@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <title>Todo list</title>
+  </head>
+
+  <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+  <body>
+    <div id="todo-table">
+      <form id="tt" action = "/display"  >
+      Player name:  <input type="text" name="item" placeholder="ADD" required/>
+      Rank:  <input type="text" name="level" placeholder="ADD" required/>
+
+        <button type="submit" >Add item</button>
+
+      </form>
+
+    </div>
+    <script>
+    $(document).ready(function()
+    {
+      console.log("ajax")
+    });
+const $form= $('#tt')
+  $form.on('submit',leader)
+  function leader(){
+    console.log("im in")
+  $.ajax({
+      url: '/',
+    type: 'POST',
+
+    data: $form.serialize()}).done(response=>{console.log(response);})
+  }
+
+    </script>
+  </body>
+</html>
